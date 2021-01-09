@@ -45,4 +45,18 @@ class CoronaService {
         .toList();
     return dataRumahSakit;
   }
+
+  static Future<List<Region>> getDataRegion() async {
+    String urlRegionProvinsi = "https://dekontaminasi.com/api/id/covid19/stats";
+    var response = await http.get(urlRegionProvinsi);
+    if (response.statusCode != 200) {
+      return [];
+    }
+
+    var dataRegionProvinsi = jsonDecode(response.body);
+
+    List result = dataRegionProvinsi['regions'];
+
+    return result.map((e) => Region.fromJson(e)).toList();
+  }
 }

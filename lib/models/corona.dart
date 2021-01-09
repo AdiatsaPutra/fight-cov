@@ -71,10 +71,10 @@ class Region {
     @required this.numbers,
   });
 
-  factory Region.fromMap(Map<String, dynamic> json) => Region(
+  factory Region.fromJson(Map<String, dynamic> json) => Region(
         type: json["type"],
         name: json["name"],
-        numbers: Numbers.fromMap(json["numbers"]),
+        numbers: Numbers.fromJson(json["numbers"]),
       );
 }
 
@@ -88,7 +88,7 @@ class Numbers {
     @required this.fatal,
   });
 
-  factory Numbers.fromMap(Map<String, dynamic> json) => Numbers(
+  factory Numbers.fromJson(Map<String, dynamic> json) => Numbers(
         infected: json["infected"],
         recovered: json["recovered"],
         fatal: json["fatal"],
