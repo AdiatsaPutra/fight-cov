@@ -27,7 +27,7 @@ class CoronaPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 180),
                 child: Container(
-                  height: 1000,
+                  height: 900,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       color: Color(0xFFEDEDED),
@@ -173,24 +173,28 @@ class CoronaPage extends StatelessWidget {
                                               width: 5,
                                             ),
                                             CoronaCardIndoesia(
-                                              text: 'Positif',
-                                              data: dataCoronaIndonesia.positif
+                                              text: 'Meninggal',
+                                              data: dataCoronaIndonesia
+                                                  .meninggal
                                                   .toString(),
-                                              color: Color(0xFFF9D8AD),
+                                              color: Color(0xFFF73C4F),
                                             ),
                                             SizedBox(
                                               width: 10,
                                             ),
                                             CoronaCardIndoesia(
-                                              text: 'Sembuh',
-                                              data: dataCoronaIndonesia.sembuh
+                                              text: 'Dirawat',
+                                              data: dataCoronaIndonesia.dirawat
                                                   .toString(),
-                                              color: Color(0xFF89C4C0),
+                                              color: Color(0xFF376F92),
                                             ),
                                           ],
                                         ),
                                       ],
                                     );
+                                  } else {
+                                    // TODO: SPINKIT FADING CIRCLE
+                                    return Container();
                                   }
                                 },
                               ),
