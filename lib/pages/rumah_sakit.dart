@@ -27,7 +27,7 @@ class RumahSakit extends StatelessWidget {
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(dataRumahSakit[index].address),
-                  contentPadding: EdgeInsets.all(10),
+                  contentPadding: EdgeInsets.all(15),
                   trailing: (dataRumahSakit[index].phone == null)
                       ? Text(
                           'Tidak Ada Nomor Telepon',

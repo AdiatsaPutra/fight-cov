@@ -1,6 +1,7 @@
 import 'package:corona_indonesia/bloc/world_corona_bloc.dart';
 import 'package:corona_indonesia/models/corona.dart';
 import 'package:corona_indonesia/widgets/call_action_button.dart';
+import 'package:corona_indonesia/widgets/corona_card.dart';
 import 'package:corona_indonesia/widgets/text_keterangan_gejala.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -107,11 +108,12 @@ class CoronaPage extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 20.0),
                         child: Container(
                           width: MediaQuery.of(context).size.width - 30,
-                          height: 200,
+                          height: 250,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(30)),
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               BlocBuilder<WorldCoronaBloc, WorldCoronaState>(
                                 builder: (_, coronaFetchSuccess) {
@@ -121,9 +123,37 @@ class CoronaPage extends StatelessWidget {
                                         coronaFetchSuccess.dataCorona;
                                     return Column(
                                       children: [
-                                        Text(dataCorona.positif),
-                                        Text(dataCorona.sembuh),
-                                        Text(dataCorona.meninggal),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Text(
+                                          'World Data',
+                                          style: GoogleFonts.poppins(
+                                              fontSize: 16,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        CoronaCard(
+                                          text: 'Positif',
+                                          data: dataCorona.positif,
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        CoronaCard(
+                                          text: 'Sembuh',
+                                          data: dataCorona.sembuh,
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        CoronaCard(
+                                          text: 'Meninggal',
+                                          data: dataCorona.meninggal,
+                                        ),
                                       ],
                                     );
                                   }
