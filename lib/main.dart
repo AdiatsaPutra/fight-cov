@@ -1,3 +1,4 @@
+import 'package:corona_indonesia/bloc/rumah_sakit_bloc.dart';
 import 'package:corona_indonesia/bloc/world_corona_bloc.dart';
 import 'package:corona_indonesia/pages/home_page.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +10,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Material App',
-        debugShowCheckedModeBanner: false,
-        home: BlocProvider(
-            create: (context) => WorldCoronaBloc()..add(FetchDataCorona()),
-            child: HomePage()));
+      title: 'Material App',
+      debugShowCheckedModeBanner: false,
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => WorldCoronaBloc()..add(FetchDataCorona()),
+          ),
+          BlocProvider(
+            create: (_) => RumahSakitBloc()..add(FetchRumahSakit()),
+          )
+        ],
+        child: HomePage(),
+      ),
+    );
   }
 }
