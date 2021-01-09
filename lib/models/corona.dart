@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 class DataCoronaIndonesia {
@@ -57,4 +59,38 @@ class DataRumahSakit {
         phone: json['phone'],
         province: json['province']);
   }
+}
+
+class Region {
+  final Type type;
+  final String name;
+  final Numbers numbers;
+  Region({
+    @required this.type,
+    @required this.name,
+    @required this.numbers,
+  });
+
+  factory Region.fromMap(Map<String, dynamic> json) => Region(
+        type: json["type"],
+        name: json["name"],
+        numbers: Numbers.fromMap(json["numbers"]),
+      );
+}
+
+class Numbers {
+  final int infected;
+  final int recovered;
+  final int fatal;
+  Numbers({
+    @required this.infected,
+    @required this.recovered,
+    @required this.fatal,
+  });
+
+  factory Numbers.fromMap(Map<String, dynamic> json) => Numbers(
+        infected: json["infected"],
+        recovered: json["recovered"],
+        fatal: json["fatal"],
+      );
 }
