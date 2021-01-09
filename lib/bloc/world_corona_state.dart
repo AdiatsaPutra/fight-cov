@@ -6,7 +6,7 @@ abstract class WorldCoronaState extends Equatable {
 
 class WorldCoronaInitial extends WorldCoronaState {
   @override
-  List<Object> get props => throw UnimplementedError();
+  List<Object> get props => [];
 }
 
 class CoronaFetchSuccess extends WorldCoronaState {

@@ -14,5 +14,5 @@ class FetchDetailCoronaSuccess extends DetailCoronaState {
 
   FetchDetailCoronaSuccess({this.region});
   @override
-  List<Object> get props => [];
+  List<Object> get props => [region];
 }

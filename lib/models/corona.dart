@@ -62,7 +62,7 @@ class DataRumahSakit {
 }
 
 class Region {
-  final Type type;
+  final String type;
   final String name;
   final Numbers numbers;
   Region({
