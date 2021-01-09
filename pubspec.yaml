@@ -28,6 +28,7 @@ dependencies:
   flutter_bloc: ^6.1.1
   google_fonts: ^1.1.1
   http: ^0.12.2
+  material_design_icons_flutter: ^4.0.5755
   provider: ^4.3.2+3
 
 dev_dependencies:

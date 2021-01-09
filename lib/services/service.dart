@@ -4,7 +4,7 @@ import 'package:corona_indonesia/models/corona.dart';
 import 'package:http/http.dart' as http;
 
 class CoronaService {
-  /// Get Data Indonesia
+  // Get Data Indonesia
   static Future<DataCoronaIndonesia> getDataIndonesia() async {
     String ulCoronaIndonesia =
         "https://apicovid19indonesia-v2.vercel.app/api/indonesia";
@@ -13,7 +13,7 @@ class CoronaService {
     return DataCoronaIndonesia.fromJson(dataCoronaIndonesia);
   }
 
-  /// Get Data Global
+  // Get Data Global
   static Future<DataCorona> getDataGlobal() async {
     String dataCoronaPositif = "https://api.kawalcorona.com/positif";
     String dataCoronaSembuh = "https://api.kawalcorona.com/sembuh";
@@ -35,7 +35,7 @@ class CoronaService {
     return dataCoronaGlobal;
   }
 
-  ///Get Data Rumah Sakit
+  // Get Data Rumah Sakit
   static Future<List<DataRumahSakit>> getRumahSakit() async {
     String urlRumahSakit = "https://dekontaminasi.com/api/id/covid19/hospitals";
     var responseRumahSakit = await http.get(urlRumahSakit);

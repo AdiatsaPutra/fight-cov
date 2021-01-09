@@ -132,12 +132,32 @@ class CoronaPage extends StatelessWidget {
                                         SizedBox(
                                           height: 10,
                                         ),
-                                        Text(
-                                          'Indonesia Data',
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 16,
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              'Update Data Indonesia',
+                                              style: GoogleFonts.poppins(
+                                                  fontSize: 16,
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            SizedBox(
+                                              width: 30,
+                                            ),
+                                            GestureDetector(
+                                              onTap: () {},
+                                              child: Text(
+                                                'Selengkapnya',
+                                                style: GoogleFonts.poppins(
+                                                    decoration: TextDecoration
+                                                        .underline,
+                                                    fontSize: 12,
+                                                    color: Colors.black,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                         SizedBox(
                                           height: 20,
@@ -225,7 +245,7 @@ class CoronaPage extends StatelessWidget {
                                           height: 10,
                                         ),
                                         Text(
-                                          'World Data',
+                                          'Udate Data Dunia',
                                           style: GoogleFonts.poppins(
                                               fontSize: 16,
                                               color: Colors.black,

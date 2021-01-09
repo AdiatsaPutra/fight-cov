@@ -28,7 +28,7 @@ class CoronaCard extends StatelessWidget {
           Text(
             data,
             style: GoogleFonts.poppins(
-                fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
+                fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ],
       ),
