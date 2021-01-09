@@ -1,7 +1,9 @@
+import 'package:corona_indonesia/bloc/indonesia_corona_bloc.dart';
 import 'package:corona_indonesia/bloc/world_corona_bloc.dart';
 import 'package:corona_indonesia/models/corona.dart';
 import 'package:corona_indonesia/widgets/call_action_button.dart';
 import 'package:corona_indonesia/widgets/corona_card.dart';
+import 'package:corona_indonesia/widgets/corona_card_indonesia.dart';
 import 'package:corona_indonesia/widgets/text_keterangan_gejala.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,10 +27,10 @@ class CoronaPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 180),
                 child: Container(
-                  height: MediaQuery.of(context).size.height,
+                  height: 1000,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
-                      color: Color(0xFFFBFBFB),
+                      color: Color(0xFFEDEDED),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(30),
                           topRight: Radius.circular(30))),
@@ -36,24 +38,24 @@ class CoronaPage extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top: 50.0),
-                        child: Text(
-                          'Apakah Kamu Mengalami Gejala - Gejala Berikut?',
-                          style: GoogleFonts.poppins(
-                              color: Color(0xFF212121),
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
                         child: Container(
                           width: MediaQuery.of(context).size.width - 30,
-                          height: 200,
+                          height: 230,
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(30)),
                           child: Column(
                             children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 20.0),
+                                child: Text(
+                                  'Apakah Kamu Mengalami Gejala - Gejala Berikut?',
+                                  style: GoogleFonts.poppins(
+                                      color: Color(0xFF212121),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
                                 child: Image.asset(
@@ -108,6 +110,98 @@ class CoronaPage extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 20.0),
                         child: Container(
                           width: MediaQuery.of(context).size.width - 30,
+                          height: 300,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              BlocBuilder<IndonesiaCoronaBloc,
+                                  IndonesiaCoronaState>(
+                                builder: (_, indoCoronaFetchSuccess) {
+                                  if (indoCoronaFetchSuccess
+                                      is FetchCoronaIndonesiaSuccess) {
+                                    DataCoronaIndonesia dataCoronaIndonesia =
+                                        indoCoronaFetchSuccess
+                                            .dataCoronaIndonesia;
+                                    return Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Text(
+                                          'Indonesia Data',
+                                          style: GoogleFonts.poppins(
+                                              fontSize: 16,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Row(
+                                          children: [
+                                            SizedBox(
+                                              width: 5,
+                                            ),
+                                            CoronaCardIndoesia(
+                                              text: 'Positif',
+                                              data: dataCoronaIndonesia.positif
+                                                  .toString(),
+                                              color: Color(0xFFF9D8AD),
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            CoronaCardIndoesia(
+                                              text: 'Sembuh',
+                                              data: dataCoronaIndonesia.sembuh
+                                                  .toString(),
+                                              color: Color(0xFF89C4C0),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Row(
+                                          children: [
+                                            SizedBox(
+                                              width: 5,
+                                            ),
+                                            CoronaCardIndoesia(
+                                              text: 'Positif',
+                                              data: dataCoronaIndonesia.positif
+                                                  .toString(),
+                                              color: Color(0xFFF9D8AD),
+                                            ),
+                                            SizedBox(
+                                              width: 10,
+                                            ),
+                                            CoronaCardIndoesia(
+                                              text: 'Sembuh',
+                                              data: dataCoronaIndonesia.sembuh
+                                                  .toString(),
+                                              color: Color(0xFF89C4C0),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    );
+                                  }
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width - 30,
                           height: 250,
                           decoration: BoxDecoration(
                               color: Colors.white,
@@ -139,6 +233,7 @@ class CoronaPage extends StatelessWidget {
                                         CoronaCard(
                                           text: 'Positif',
                                           data: dataCorona.positif,
+                                          color: Color(0xFFF9D8AD),
                                         ),
                                         SizedBox(
                                           height: 10,
@@ -146,6 +241,7 @@ class CoronaPage extends StatelessWidget {
                                         CoronaCard(
                                           text: 'Sembuh',
                                           data: dataCorona.sembuh,
+                                          color: Color(0xFF89C4C0),
                                         ),
                                         SizedBox(
                                           height: 10,
@@ -153,6 +249,7 @@ class CoronaPage extends StatelessWidget {
                                         CoronaCard(
                                           text: 'Meninggal',
                                           data: dataCorona.meninggal,
+                                          color: Color(0xFFF73C4F),
                                         ),
                                       ],
                                     );
@@ -162,7 +259,7 @@ class CoronaPage extends StatelessWidget {
                             ],
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),

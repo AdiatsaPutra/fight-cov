@@ -1,3 +1,4 @@
+import 'package:corona_indonesia/bloc/indonesia_corona_bloc.dart';
 import 'package:corona_indonesia/bloc/rumah_sakit_bloc.dart';
 import 'package:corona_indonesia/bloc/world_corona_bloc.dart';
 import 'package:corona_indonesia/pages/home_page.dart';
@@ -15,11 +16,14 @@ class MyApp extends StatelessWidget {
       home: MultiBlocProvider(
         providers: [
           BlocProvider(
+            create: (_) => IndonesiaCoronaBloc()..add(FetchCoronaIndonesia()),
+          ),
+          BlocProvider(
             create: (_) => WorldCoronaBloc()..add(FetchDataCorona()),
           ),
           BlocProvider(
             create: (_) => RumahSakitBloc()..add(FetchRumahSakit()),
-          )
+          ),
         ],
         child: HomePage(),
       ),
