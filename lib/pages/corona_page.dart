@@ -1,6 +1,7 @@
 import 'package:corona_indonesia/bloc/indonesia_corona_bloc.dart';
 import 'package:corona_indonesia/bloc/world_corona_bloc.dart';
 import 'package:corona_indonesia/models/corona.dart';
+import 'package:corona_indonesia/pages/detail_corona_indonesia_page.dart';
 import 'package:corona_indonesia/widgets/call_action_button.dart';
 import 'package:corona_indonesia/widgets/corona_card.dart';
 import 'package:corona_indonesia/widgets/corona_card_indonesia.dart';
@@ -145,7 +146,13 @@ class CoronaPage extends StatelessWidget {
                                               width: 30,
                                             ),
                                             GestureDetector(
-                                              onTap: () {},
+                                              onTap: () {
+                                                // TODO: BLOC NAVIGATOR
+                                                Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            DetailCoronaIndonesia()));
+                                              },
                                               child: Text(
                                                 'Selengkapnya',
                                                 style: GoogleFonts.poppins(
