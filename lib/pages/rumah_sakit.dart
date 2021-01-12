@@ -1,10 +1,4 @@
-import 'package:corona_indonesia/bloc/rumah_sakit_bloc.dart';
-import 'package:flutter/material.dart';
-import 'package:corona_indonesia/models/corona.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+part of 'pages.dart';
 
 class RumahSakit extends StatelessWidget {
   @override
@@ -14,6 +8,7 @@ class RumahSakit extends StatelessWidget {
         if (rumahSakitState is FetchRumahSakitSuccess) {
           List<DataRumahSakit> dataRumahSakit = rumahSakitState.dataRumahSakit;
           return ListView.builder(
+            itemCount: dataRumahSakit.length,
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(

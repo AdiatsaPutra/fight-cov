@@ -1,8 +1,4 @@
-import 'package:corona_indonesia/pages/corona_page.dart';
-import 'package:corona_indonesia/pages/news_page.dart';
-import 'package:corona_indonesia/pages/rumah_sakit.dart';
-import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+part of 'pages.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -27,13 +23,26 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: onTabTapped,
+        fixedColor: Color(0xFFA694C4),
+        selectedLabelStyle: GoogleFonts.poppins(
+          fontSize: 12,
+        ),
+        unselectedLabelStyle: GoogleFonts.poppins(
+          fontSize: 12,
+        ),
         items: [
           BottomNavigationBarItem(
-              icon: Icon(MdiIcons.homeOutline), label: 'Home'),
+            icon: Icon(MdiIcons.homeOutline),
+            label: 'Home',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(MdiIcons.newspaperVariant), label: 'Berita'),
+            icon: Icon(MdiIcons.newspaperVariant),
+            label: 'Berita',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(MdiIcons.hospitalBuilding), label: 'Rumah Sakit'),
+            icon: Icon(MdiIcons.hospitalBuilding),
+            label: 'Rumah Sakit',
+          ),
         ],
       ),
     );

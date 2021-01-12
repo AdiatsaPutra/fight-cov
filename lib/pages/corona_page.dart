@@ -1,15 +1,4 @@
-import 'package:corona_indonesia/bloc/indonesia_corona_bloc.dart';
-import 'package:corona_indonesia/bloc/world_corona_bloc.dart';
-import 'package:corona_indonesia/models/corona.dart';
-import 'package:corona_indonesia/pages/detail_corona_indonesia_page.dart';
-import 'package:corona_indonesia/widgets/call_action_button.dart';
-import 'package:corona_indonesia/widgets/corona_card.dart';
-import 'package:corona_indonesia/widgets/corona_card_indonesia.dart';
-import 'package:corona_indonesia/widgets/text_keterangan_gejala.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
+part of 'pages.dart';
 
 class CoronaPage extends StatelessWidget {
   @override
@@ -93,7 +82,7 @@ class CoronaPage extends StatelessWidget {
                                       text: 'Telpon 119',
                                       color: Color(0xFFF73C4F),
                                       onTap: () {
-                                        print('object');
+                                        launch('tel:085786702615');
                                       },
                                     ),
                                     CallAction(

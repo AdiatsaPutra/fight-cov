@@ -1,9 +1,4 @@
-import 'package:corona_indonesia/bloc/detail_corona_bloc.dart';
-import 'package:corona_indonesia/models/corona.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
+part of 'pages.dart';
 
 class DetailCoronaIndonesia extends StatelessWidget {
   @override
@@ -18,7 +13,26 @@ class DetailCoronaIndonesia extends StatelessWidget {
                 physics: NeverScrollableScrollPhysics(),
                 child: Column(
                   children: [
-                    Text('data'),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        children: [
+                          IconButton(
+                            icon: Icon(MdiIcons.arrowLeft),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                          Text(
+                            'Data Corona Per Provinsi',
+                            style: GoogleFonts.poppins(
+                                fontSize: 20,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
                     BlocBuilder<DetailCoronaBloc, DetailCoronaState>(
                       builder: (_, detailCoronaState) {
                         if (detailCoronaState is FetchDetailCoronaSuccess) {
@@ -30,6 +44,7 @@ class DetailCoronaIndonesia extends StatelessWidget {
                             itemBuilder: (context, index) {
                               return Card(
                                 margin: EdgeInsets.all(5),
+                                elevation: 0,
                                 child: Padding(
                                   padding: const EdgeInsets.all(15.0),
                                   child: Row(
