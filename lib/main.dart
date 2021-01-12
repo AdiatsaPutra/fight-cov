@@ -1,5 +1,6 @@
 import 'package:corona_indonesia/bloc/detail_corona_bloc.dart';
 import 'package:corona_indonesia/bloc/indonesia_corona_bloc.dart';
+import 'package:corona_indonesia/bloc/indonesia_covid_news_bloc.dart';
 import 'package:corona_indonesia/bloc/rumah_sakit_bloc.dart';
 import 'package:corona_indonesia/bloc/world_corona_bloc.dart';
 import 'package:corona_indonesia/pages/pages.dart';
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (_) => DetailCoronaBloc()..add(FetchCoronaRegion()),
+        ),
+        BlocProvider(
+          create: (_) => IndonesiaCovidNewsBloc()..add(FetchIndonesiaNews()),
         ),
       ], child: HomePage()),
     );
