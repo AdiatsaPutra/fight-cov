@@ -92,3 +92,15 @@ class Numbers {
         fatal: json["fatal"],
       );
 }
+
+class IndonesiaNews {
+  final String title;
+  final String url;
+  final int timeStamp;
+
+  IndonesiaNews(
+      {@required this.title, @required this.url, @required this.timeStamp});
+
+  factory IndonesiaNews.fromJson(Map<String, dynamic> json) => IndonesiaNews(
+      title: json["title"], url: json["url"], timeStamp: json["timestamp"]);
+}

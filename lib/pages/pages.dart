@@ -3,7 +3,6 @@ import 'package:corona_indonesia/bloc/indonesia_corona_bloc.dart';
 import 'package:corona_indonesia/bloc/rumah_sakit_bloc.dart';
 import 'package:corona_indonesia/bloc/world_corona_bloc.dart';
 import 'package:corona_indonesia/models/corona.dart';
-import 'package:corona_indonesia/pages/news_page.dart';
 import 'package:corona_indonesia/widgets/call_action_button.dart';
 import 'package:corona_indonesia/widgets/corona_card.dart';
 import 'package:corona_indonesia/widgets/corona_card_indonesia.dart';
@@ -13,7 +12,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 part 'corona_page.dart';
 part 'detail_corona_indonesia_page.dart';

@@ -40,7 +40,7 @@ class CoronaPage extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(top: 20.0),
                                 child: Text(
-                                  'Apakah Kamu Mengalami Gejala - Gejala Berikut?',
+                                  'Kamu Mengalami Gejala - Gejala Berikut?',
                                   style: GoogleFonts.poppins(
                                       color: Color(0xFF212121),
                                       fontSize: 14,
@@ -119,7 +119,7 @@ class CoronaPage extends StatelessWidget {
                                         Row(
                                           children: [
                                             Text(
-                                              'Update Data Indonesia',
+                                              'Update Covid Indonesia',
                                               style: GoogleFonts.poppins(
                                                   fontSize: 16,
                                                   color: Colors.black,

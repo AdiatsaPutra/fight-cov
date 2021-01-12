@@ -46,17 +46,29 @@ class CoronaService {
     return dataRumahSakit;
   }
 
+  // Get Data Provinsi(Region)
   static Future<List<Region>> getDataRegion() async {
     String urlRegionProvinsi = "https://dekontaminasi.com/api/id/covid19/stats";
     var response = await http.get(urlRegionProvinsi);
     if (response.statusCode != 200) {
       return [];
     }
-
     var dataRegionProvinsi = jsonDecode(response.body);
-
     List result = dataRegionProvinsi['regions'];
-
     return result.map((e) => Region.fromJson(e)).toList();
   }
+
+  // Get Covid News
+  static Future<List<IndonesiaNews>> getNewsIndonesia() async {
+    String urlNewsIndonesia = "https://dekontaminasi.com/api/id/covid19/news";
+    var responseNewsIndonesia = await http.get(urlNewsIndonesia);
+    List<dynamic> bodyNewsIndonesia = jsonDecode(responseNewsIndonesia.body);
+    List<IndonesiaNews> dataNewsIndonesia = bodyNewsIndonesia
+        .map((dynamic json) => IndonesiaNews.fromJson(json))
+        .toList();
+    print(dataNewsIndonesia);
+    return dataNewsIndonesia;
+  }
 }
+
+// TODO: Cleaning Variable Type
