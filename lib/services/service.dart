@@ -66,7 +66,6 @@ class CoronaService {
     List<IndonesiaNews> dataNewsIndonesia = bodyNewsIndonesia
         .map((dynamic json) => IndonesiaNews.fromJson(json))
         .toList();
-    print(dataNewsIndonesia);
     return dataNewsIndonesia;
   }
 }

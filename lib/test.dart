@@ -26,13 +26,25 @@ class MyApp extends StatelessWidget {
                 return ListView.builder(
                     itemCount: indonesiaNews.length,
                     itemBuilder: (context, index) {
-                      print(indonesiaNews[index].title);
-                      return ListTile(
-                        title: Column(
-                          children: [
-                            Text(indonesiaNews[index].title),
-                            Text(indonesiaNews[index].url),
-                          ],
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (BuildContext context) => HalamanUtama(
+                                index: index,
+                                selectedUrl: indonesiaNews[index].url,
+                              ),
+                            ),
+                          );
+                        },
+                        child: Card(
+                          child: ListTile(
+                            title: Column(
+                              children: [
+                                Text(indonesiaNews[index].title),
+                              ],
+                            ),
+                          ),
                         ),
                       );
                     });
@@ -53,26 +65,24 @@ class MyApp extends StatelessWidget {
 
 class HalamanUtama extends StatelessWidget {
   final String selectedUrl;
+  final int index;
 
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
 
-  HalamanUtama({
-    @required this.selectedUrl,
-  });
+  HalamanUtama({this.selectedUrl, this.index});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(this.selectedUrl),
-      ),
-      body: WebView(
-        initialUrl: selectedUrl,
-        javascriptMode: JavascriptMode.unrestricted,
-        onWebViewCreated: (WebViewController webViewController) {
-          _controller.complete(webViewController);
-        },
+    return SafeArea(
+      child: Scaffold(
+        body: WebView(
+          initialUrl: selectedUrl,
+          javascriptMode: JavascriptMode.unrestricted,
+          onWebViewCreated: (WebViewController webViewController) {
+            _controller.complete(webViewController);
+          },
+        ),
       ),
     );
   }
