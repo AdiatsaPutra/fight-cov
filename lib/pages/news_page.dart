@@ -12,22 +12,35 @@ class NewsPage extends StatelessWidget {
             return ListView.builder(
                 itemCount: indonesiaNews.length,
                 itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (BuildContext context) => NewsWebViewPage(
-                            index: index,
-                            selectedUrl: indonesiaNews[index].url,
-                          ),
+                  return Card(
+                    child: ListTile(
+                      leading: Icon(MdiIcons.newspaper),
+                      title: Text(
+                        indonesiaNews[index].title,
+                        style: GoogleFonts.poppins(
+                          fontSize: 14,
+                          color: Colors.black,
                         ),
-                      );
-                    },
-                    child: Card(
-                      child: ListTile(
-                        leading: Icon(MdiIcons.newspaper),
-                        title: Text(indonesiaNews[index].title),
                       ),
+                      trailing: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    NewsWebViewPage(
+                                  index: index,
+                                  selectedUrl: indonesiaNews[index].url,
+                                ),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            'Baca',
+                            style: GoogleFonts.poppins(
+                              fontSize: 16,
+                              color: Color(0xFFF73C4F),
+                            ),
+                          )),
                     ),
                   );
                 });

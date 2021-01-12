@@ -20,7 +20,7 @@ class CallAction extends StatelessWidget {
           child: Text(
             text,
             style: GoogleFonts.poppins(
-                color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+                color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),
           ),
         ),
       ),
