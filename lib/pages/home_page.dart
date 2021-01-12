@@ -14,16 +14,40 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  List pages = [CoronaPage(), NewsPage(), RumahSakit()];
+  List pages = [CoronaPage(), RumahSakit()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages[currentIndex],
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xFFF73C4F),
+        child: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Column(
+            children: [
+              Icon(
+                MdiIcons.phone,
+                color: Colors.white,
+                size: 30,
+              ),
+              Text(
+                'Call',
+                style: GoogleFonts.poppins(
+                    fontSize: 11,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              )
+            ],
+          ),
+        ),
+        onPressed: () {},
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: onTabTapped,
-        fixedColor: Color(0xFFA694C4),
+        fixedColor: Color(0xFFF73C4F),
         selectedLabelStyle: GoogleFonts.poppins(
           fontSize: 12,
         ),
@@ -34,10 +58,6 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: Icon(MdiIcons.homeOutline),
             label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(MdiIcons.newspaperVariant),
-            label: 'Berita',
           ),
           BottomNavigationBarItem(
             icon: Icon(MdiIcons.hospitalBuilding),

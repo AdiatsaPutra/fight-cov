@@ -79,15 +79,8 @@ class CoronaPage extends StatelessWidget {
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     CallAction(
-                                      text: 'Telpon 119',
+                                      text: 'Deteksi Diri Saya',
                                       color: Color(0xFFF73C4F),
-                                      onTap: () {
-                                        launch('tel:085786702615');
-                                      },
-                                    ),
-                                    CallAction(
-                                      text: 'Kirim SMS',
-                                      color: Color(0xFF376F92),
                                       onTap: () {},
                                     ),
                                   ],

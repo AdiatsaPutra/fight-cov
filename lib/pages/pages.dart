@@ -1,5 +1,6 @@
 import 'package:corona_indonesia/bloc/detail_corona_bloc.dart';
 import 'package:corona_indonesia/bloc/indonesia_corona_bloc.dart';
+import 'package:corona_indonesia/bloc/rumah_sakit_bloc.dart';
 import 'package:corona_indonesia/bloc/world_corona_bloc.dart';
 import 'package:corona_indonesia/models/corona.dart';
 import 'package:corona_indonesia/pages/news_page.dart';

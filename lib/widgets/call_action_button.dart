@@ -12,7 +12,7 @@ class CallAction extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
-        width: 130,
+        width: 300,
         height: 39,
         decoration: BoxDecoration(
             color: color, borderRadius: BorderRadius.circular(30)),
