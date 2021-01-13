@@ -27,6 +27,7 @@ class CoronaPage extends StatelessWidget {
                           topRight: Radius.circular(30))),
                   child: Column(
                     children: [
+                      // DETEKSI DIRI
                       Padding(
                         padding: const EdgeInsets.only(top: 50.0),
                         child: Container(
@@ -34,7 +35,7 @@ class CoronaPage extends StatelessWidget {
                           height: 230,
                           decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(30)),
+                              borderRadius: BorderRadius.circular(10)),
                           child: Column(
                             children: [
                               Padding(
@@ -90,6 +91,7 @@ class CoronaPage extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // UPDATE COVID INDONESIA
                       Padding(
                         padding: const EdgeInsets.only(top: 20.0),
                         child: Container(
@@ -97,7 +99,7 @@ class CoronaPage extends StatelessWidget {
                           height: 300,
                           decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(30)),
+                              borderRadius: BorderRadius.circular(10)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -214,6 +216,7 @@ class CoronaPage extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // COVID NEWS
                       Padding(
                         padding: const EdgeInsets.only(top: 20.0),
                         child: Container(
@@ -221,7 +224,7 @@ class CoronaPage extends StatelessWidget {
                           height: 300,
                           decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(30)),
+                              borderRadius: BorderRadius.circular(10)),
                           child: BlocBuilder<IndonesiaCovidNewsBloc,
                               IndonesiaCovidNewsState>(
                             builder: (_, newsIndonesiaState) {
@@ -232,15 +235,41 @@ class CoronaPage extends StatelessWidget {
                                         .sublist(0, 4);
                                 return Column(
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 20.0),
-                                      child: Text(
-                                        'Berita Covid Terbaru',
-                                        style: GoogleFonts.poppins(
-                                            color: Color(0xFF212121),
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold),
-                                      ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        SizedBox(
+                                          height: 50,
+                                        ),
+                                        Text(
+                                          'Berita COVID Terbaru',
+                                          style: GoogleFonts.poppins(
+                                              fontSize: 18,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(
+                                          width: 30,
+                                        ),
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        NewsPage()));
+                                          },
+                                          child: Text(
+                                            'Selengkapnya',
+                                            style: GoogleFonts.poppins(
+                                                decoration:
+                                                    TextDecoration.underline,
+                                                fontSize: 12,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                     ListView.builder(
                                         physics: NeverScrollableScrollPhysics(),
@@ -296,6 +325,7 @@ class CoronaPage extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // WORLD COVID DATA
                       Padding(
                         padding: const EdgeInsets.only(top: 20.0),
                         child: Container(
@@ -303,7 +333,7 @@ class CoronaPage extends StatelessWidget {
                           height: 250,
                           decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(30)),
+                              borderRadius: BorderRadius.circular(10)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
