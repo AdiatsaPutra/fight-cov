@@ -21,7 +21,7 @@ class CoronaPage extends StatelessWidget {
                   height: 1250,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
-                      color: Color(0xFFEDEDED),
+                      color: Color(0xFFF9F8FF),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(30),
                           topRight: Radius.circular(30))),
