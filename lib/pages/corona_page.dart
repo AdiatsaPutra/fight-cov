@@ -18,7 +18,7 @@ class CoronaPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 180),
                 child: Container(
-                  height: 900,
+                  height: 1250,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       color: Color(0xFFEDEDED),
@@ -121,7 +121,7 @@ class CoronaPage extends StatelessWidget {
                                             Text(
                                               'Update Covid Indonesia',
                                               style: GoogleFonts.poppins(
-                                                  fontSize: 16,
+                                                  fontSize: 18,
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold),
                                             ),
@@ -218,6 +218,88 @@ class CoronaPage extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 20.0),
                         child: Container(
                           width: MediaQuery.of(context).size.width - 30,
+                          height: 300,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(30)),
+                          child: BlocBuilder<IndonesiaCovidNewsBloc,
+                              IndonesiaCovidNewsState>(
+                            builder: (_, newsIndonesiaState) {
+                              if (newsIndonesiaState
+                                  is IndonesiaNewsFetchSuccess) {
+                                List<IndonesiaNews> indonesiaNews =
+                                    newsIndonesiaState.indonesiaNews
+                                        .sublist(0, 4);
+                                return Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 20.0),
+                                      child: Text(
+                                        'Berita Covid Terbaru',
+                                        style: GoogleFonts.poppins(
+                                            color: Color(0xFF212121),
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    ListView.builder(
+                                        physics: NeverScrollableScrollPhysics(),
+                                        itemCount: indonesiaNews.length,
+                                        shrinkWrap: true,
+                                        itemBuilder: (context, index) {
+                                          return ListTile(
+                                            leading: Icon(MdiIcons.newspaper),
+                                            title: Text(
+                                              indonesiaNews[index].title,
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: GoogleFonts.poppins(
+                                                fontSize: 14,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                            trailing: GestureDetector(
+                                              onTap: () {
+                                                Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                    builder: (BuildContext
+                                                            context) =>
+                                                        NewsWebViewPage(
+                                                      index: index,
+                                                      selectedUrl:
+                                                          indonesiaNews[index]
+                                                              .url,
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                              child: Text(
+                                                'Baca',
+                                                style: GoogleFonts.poppins(
+                                                  fontSize: 16,
+                                                  color: Color(0xFFF73C4F),
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }),
+                                  ],
+                                );
+                              } else {
+                                return Center(
+                                  child: SpinKitFadingCircle(
+                                    color: Color(0xFFF73C4F),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width - 30,
                           height: 250,
                           decoration: BoxDecoration(
                               color: Colors.white,
@@ -239,7 +321,7 @@ class CoronaPage extends StatelessWidget {
                                         Text(
                                           'Udate Data Dunia',
                                           style: GoogleFonts.poppins(
-                                              fontSize: 16,
+                                              fontSize: 18,
                                               color: Colors.black,
                                               fontWeight: FontWeight.bold),
                                         ),

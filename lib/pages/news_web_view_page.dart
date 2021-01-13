@@ -4,7 +4,7 @@ class NewsWebViewPage extends StatelessWidget {
   final String selectedUrl;
   final int index;
 
-  final Completer<WebViewController> _controller =
+  final Completer<WebViewController> controller =
       Completer<WebViewController>();
 
   NewsWebViewPage({this.selectedUrl, this.index});
@@ -17,7 +17,7 @@ class NewsWebViewPage extends StatelessWidget {
           initialUrl: selectedUrl,
           javascriptMode: JavascriptMode.unrestricted,
           onWebViewCreated: (WebViewController webViewController) {
-            _controller.complete(webViewController);
+            controller.complete(webViewController);
           },
         ),
       ),

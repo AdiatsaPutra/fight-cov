@@ -4,13 +4,15 @@ class NewsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<IndonesiaCovidNewsBloc, IndonesiaCovidNewsState>(
-        builder: (_, newsIndonesiaState) {
-          if (newsIndonesiaState is IndonesiaNewsFetchSuccess) {
-            List<IndonesiaNews> indonesiaNews =
-                newsIndonesiaState.indonesiaNews;
-            return ListView.builder(
+      body: SafeArea(
+        child: BlocBuilder<IndonesiaCovidNewsBloc, IndonesiaCovidNewsState>(
+          builder: (_, newsIndonesiaState) {
+            if (newsIndonesiaState is IndonesiaNewsFetchSuccess) {
+              List<IndonesiaNews> indonesiaNews =
+                  newsIndonesiaState.indonesiaNews;
+              return ListView.builder(
                 itemCount: indonesiaNews.length,
+                shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return Card(
                     child: ListTile(
@@ -43,15 +45,17 @@ class NewsPage extends StatelessWidget {
                           )),
                     ),
                   );
-                });
-          } else {
-            return Center(
-              child: SpinKitFadingCircle(
-                color: Color(0xFFF73C4F),
-              ),
-            );
-          }
-        },
+                },
+              );
+            } else {
+              return Center(
+                child: SpinKitFadingCircle(
+                  color: Color(0xFFF73C4F),
+                ),
+              );
+            }
+          },
+        ),
       ),
     );
   }
