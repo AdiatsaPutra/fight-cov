@@ -21,6 +21,8 @@ class NewsPage extends StatelessWidget {
                         leading: Icon(MdiIcons.newspaper),
                         title: Text(
                           indonesiaNews[index].title,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.poppins(
                             fontSize: 14,
                             color: Colors.black,

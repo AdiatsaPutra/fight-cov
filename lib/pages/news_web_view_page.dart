@@ -14,6 +14,7 @@ class NewsWebViewPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: WebView(
+          
           initialUrl: selectedUrl,
           javascriptMode: JavascriptMode.unrestricted,
           onWebViewCreated: (WebViewController webViewController) {

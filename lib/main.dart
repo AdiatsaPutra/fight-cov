@@ -12,25 +12,6 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MultiBlocProvider(providers: [
-        BlocProvider(
-          create: (_) => IndonesiaCoronaBloc()..add(FetchCoronaIndonesia()),
-        ),
-        BlocProvider(
-          create: (_) => WorldCoronaBloc()..add(FetchDataCorona()),
-        ),
-        BlocProvider(
-          create: (_) => RumahSakitBloc()..add(FetchRumahSakit()),
-        ),
-        BlocProvider(
-          create: (_) => DetailCoronaBloc()..add(FetchCoronaRegion()),
-        ),
-        BlocProvider(
-          create: (_) => IndonesiaCovidNewsBloc()..add(FetchIndonesiaNews()),
-        ),
-      ], child: HomePage()),
-    );
+    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashPage());
   }
 }
